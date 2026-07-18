@@ -52,16 +52,14 @@ so they can intervene with targeted offers at the right time and protect revenue
 | Metric | Score |
 |--------|-------|
 | **Model** | Random Forest (Tuned — GridSearchCV) |
-| **Accuracy** | 87.xx% |
-| **Precision** | xx.xx% |
-| **Recall** | xx.xx% |
-| **F1 Score** | xx.xx% |
-| **AUC-ROC** | 0.9xxx |
-| **Avg Precision (PR)** | 0.xxxx |
-| **High-Risk Customers Identified** | xxx |
-| **Monthly Revenue At Risk** | $xx,xxx |
+| **Accuracy** | 77.68% |
+| **Precision** | 57.58% |
+| **Recall** | 60.96% |
+| **F1 Score** | 59.22% |
+| **AUC-ROC** | 0.8150 |
+| **Avg Precision (PR)** | 0.5863 |
+| **High-Risk Customers Identified** | 244 |
 
-> 💡 Replace `xx.xx` with your actual values printed in `04_model_evaluation.ipynb`
 
 ---
 
@@ -235,12 +233,11 @@ customer-churn-prediction/
 
 | Model | Accuracy | Precision | Recall | F1 Score | AUC-ROC |
 |-------|----------|-----------|--------|----------|---------|
-| Logistic Regression | xx.xx% | xx.xx% | xx.xx% | xx.xx% | 0.xxxx |
-| Decision Tree | xx.xx% | xx.xx% | xx.xx% | xx.xx% | 0.xxxx |
-| Random Forest (baseline) | xx.xx% | xx.xx% | xx.xx% | xx.xx% | 0.xxxx |
-| **Random Forest (tuned) ✅** | **xx.xx%** | **xx.xx%** | **xx.xx%** | **xx.xx%** | **0.xxxx** |
+| Logistic Regression | 73.28% | 49.83% | 78.34% | 60.91% | 0.8339 |
+| Decision Tree | 73.28% | 49.78% | 60.43% | 54.59% | 0.6918 |
+| Random Forest (baseline) | 77.47% | 57.33% | 59.63% | 58.45% | 0.8131 |
+| **Random Forest (tuned) ✅** | **77.68%** | **57.58%** | **60.96%** | **59.22%** | **0.8150** |
 
-> Fill in your actual values from the output of `03_model_building.ipynb`
 
 ### Why Random Forest Won
 
@@ -278,7 +275,7 @@ customer-churn-prediction/
 
 ### Step 1 — Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/customer-churn-prediction.git
+git clone https://github.com/abhibaw/customer-churn-prediction.git
 cd customer-churn-prediction
 ```
 
@@ -318,7 +315,6 @@ jupyter notebook
 | 3rd | `03_model_building.ipynb` | Train models, tune, save .pkl |
 | 4th | `04_model_evaluation.ipynb` | Evaluate, plot, export predictions |
 
-> ⚠️ Each notebook after `02` is fully independent — you can restart the kernel and run it fresh without re-running previous notebooks.
 
 ### Step 6 — Open Power BI Dashboard
 ```
@@ -431,23 +427,6 @@ def assign_risk(probability):
 | Revenue by Risk Segment | Bar Chart | Risk_Segment, MonthlyCharges |
 | High Risk Customer Table | Table | All key columns, filtered |
 
----
-
-## ❓ Interview Questions & Answers
-
-**Q: Walk me through this project**
-> Built an end-to-end churn prediction system on IBM Telco data with 7,043 customers. The dataset had 27% churn rate — imbalanced — so I applied SMOTE only to training data. Compared three models and tuned Random Forest with GridSearchCV achieving 87%+ accuracy and 0.92+ AUC-ROC. Found month-to-month customers churn at 3× the rate of annual contract customers. Built a 2-page Power BI dashboard with DAX-driven KPIs so retention teams can act on predictions immediately.
-
-**Q: What is SMOTE and why only on training data?**
-> SMOTE generates synthetic minority-class samples by interpolating between real ones. I applied it only to training data because applying it to test data would artificially inflate metrics — the test set must reflect real-world distribution to give honest evaluation.
-
-**Q: Why F1 Score over Accuracy?**
-> Test set has 73% No Churn. A model predicting No Churn for everyone gets 73% accuracy but misses every churner — useless. F1 penalises both false positives (wasted offers) and false negatives (missed churners), making it the right metric for imbalanced churn data.
-
-**Q: Why Random Forest over Logistic Regression?**
-> Logistic Regression assumes linear decision boundaries — it misses interaction effects like "high monthly charges + short tenure + month-to-month contract". Random Forest captures these non-linear relationships through ensemble decision trees and provided 5–8% better F1 in this case.
-
----
 
 ## 🤝 Contributing
 
@@ -474,9 +453,7 @@ please consider **starring ⭐ the repository** — it helps others find it!
 
 Data Analyst | Power BI Developer | Business Intelligence Analyst
 
-I'm a Data Analyst with 2 years of experience combining
-**Control & Automation Engineering domain expertise**
-with full-stack data analytics capability.
+I'm a Data Analyst with 2 years of experience with full-stack data analytics capability.
 
 Skilled in Power BI (DAX, Power Query), advanced SQL,
 Python (Pandas, NumPy, Scikit-learn), and Excel.
@@ -485,7 +462,7 @@ Python (Pandas, NumPy, Scikit-learn), and Excel.
 |--|--|
 | 📧 **Email** | abhishekbawane04@gmail.com |
 | 💼 **LinkedIn** | [linkedin.com/in/abhishek-bawane-31ba70228](https://www.linkedin.com/in/abhishek-bawane-31ba70228/) |
-| 🐙 **GitHub** | [github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME) |
+| 🐙 **GitHub** | [github.com/Abhishek_bawane](https://github.com/abhibaw) |
 | 📍 **Location** | Pune, Maharashtra, India |
 
 ---
